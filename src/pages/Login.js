@@ -5,11 +5,11 @@ import api from '../services/api';
 
 import logo from "../assets/logo.png";
 
-export default function Login() {
+export default function Login({ navigation }) {
     const [email, setEmail] = useState('');
     const [techs, setTechs] = useState('');
 
-    async function handleSubmit() {
+    async function handleSubmit () {
         const response = await api.post('/sessions', {
             email
         })
