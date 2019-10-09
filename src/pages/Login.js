@@ -11,15 +11,15 @@ export default function Login() {
 
     async function handleSubmit() {
         const response = await api.post('/sessions', {
-        email
-    })
+            email
+        })
 
-    const { _id } = response.data;
+        const { _id } = response.data;
 
-    await AsyncStorage.setItem("user", _id);
-    await AsyncStorage.setItem("techs", techs);
+        await AsyncStorage.setItem("user", _id);
+        await AsyncStorage.setItem("techs", techs);
 
-    navigation.navigate( 'List' );
+        navigation.navigate('List');
     }
 
 
