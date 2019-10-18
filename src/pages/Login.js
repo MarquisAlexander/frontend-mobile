@@ -10,13 +10,13 @@ export default function Login({ navigation }) {
     const [techs, setTechs] = useState('');
 
 // se o usuário já estiver logado, ele pula direto para a página "List"
-    useEffect(() => {
-        AsyncStorage.getItem('user').then(user =>{
-            if(user) {
-                navigation.navigate("List");
-            }
-        })
-    }, []);
+    // useEffect(() => {
+    //     AsyncStorage.getItem('user').then(user =>{
+    //         if(user) {
+    //             navigation.navigate("List");
+    //         }
+    //     })
+    // }, []);
 
 //função executada quando o botão é clicado
     async function handleSubmit () {
