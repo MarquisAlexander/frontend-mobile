@@ -22,7 +22,7 @@ export default function SpotList({ tech }) {
     return (
 //renderizando a lista
         <View style={styles.container}>
-            <Text style={styles.title}>Empresas que usam <Text style={styles.bold}>{tech}</Text></Text>
+            <Text style={styles.title}>Etiqueta: <Text style={styles.bold}>{tech}</Text></Text>
             <FlatList 
             style={styles.list}
             data={spots}
@@ -33,9 +33,9 @@ export default function SpotList({ tech }) {
                 <View style={styles.listItem}>
                     <Image style={styles.thumbnail} source={{ uri: item.thumbnail_url }}/>
                     <Text style={styles.company}> {item.company}</Text>
-                    <Text style={styles.price}>{item.price ? `R$${item.price}/dia` : 'GRATUITO'}</Text>
+                    <Text style={styles.price}>{item.price ? `R$${item.price}/dia` : 'Não vou gastar nada'}</Text>
                     <TouchableOpacity onPress={() => {}} style={styles.button}>
-                        <Text style={styles.buttonText}> Solicitar reserva</Text>
+                        <Text style={styles.buttonText}> Evento concluído</Text>
                     </TouchableOpacity>
                 </View>
             )}
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     
     button: {
             height: 32,
-            backgroundColor: '#f05a5b',
+            backgroundColor: '#7159c1',
             justifyContent: "center",
             alignItems: "center",
             borderRadius: 2,

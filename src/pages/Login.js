@@ -60,7 +60,7 @@ export default function Login({ navigation }) {
             />
 
            <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-               <Text style={styles.buttonText}>Encontrar spots</Text>
+               <Text style={styles.buttonText}>Encontrar Eventos</Text>
             </TouchableOpacity> 
         </View>
     </KeyboardAvoidingView>
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
 //botão
     button: {
         height: 42,
-        backgroundColor: '#f05a5b',
+        backgroundColor: '#7159c1',
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 2,
