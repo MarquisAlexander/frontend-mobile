@@ -1,11 +1,29 @@
 import React, { useState } from "react";
-import { Text, SafeAreaView, StyleSheet, TouchableOpacity, TextInput } from "react-native";
+import { Text, SafeAreaView, Alert, StyleSheet, TouchableOpacity, AsyncStorage, TextInput } from "react-native";
+
+import api from "../services/api";
 
 export default function Book({ navigation }) {
     const [date, setDate] = useState("");
     const id = navigation.getParam('id');
 
-    function handleSubmit() {}
+    async function handleSubmit() {
+        const user_id = await AsyncStorage.getItem("user");
+
+        await api.post(`/spots/${id}/bookings`, {
+            date
+        }, {
+            headers: { user_id }
+        })
+
+        Alert.alert("Evento Concluído.");
+
+        navigation.navigate("List");
+    }
+
+    function hamdleCancel() {
+        navigation.navigate("List");
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -20,10 +38,10 @@ export default function Book({ navigation }) {
                 onChangeText={setDate}
             />
             <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-               <Text style={styles.buttonText}>Solicitar reservar</Text>
+               <Text style={styles.buttonText}>Concluír Evento</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={handleSubmit} style={[styles.button, styles.cancelButton]}>
+            <TouchableOpacity onPress={hamdleCancel} style={[styles.button, styles.cancelButton]}>
                <Text style={styles.buttonText}>Cancelar </Text>
             </TouchableOpacity>
         </SafeAreaView>
